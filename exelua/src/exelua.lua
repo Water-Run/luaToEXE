@@ -9,7 +9,7 @@ File: exelua.lua
 _VERSION = 0.1
 
 --- Help information
-_HELP_INFO = "exelua help:\n" .. "Get version: exelua -v\n" .. "Compile to exe: exelua -c `input Lua file path` `output exe file path`"
+_HELP_INFO = "exelua: help\n" .. "Get version>> exelua -v\n" .. "Compile to exe>> exelua -c `input Lua file path` `output exe file path`"
 
 --- Check if a file exists
 --- @param filepath string: The file path to check
@@ -38,10 +38,12 @@ local function selfCheck()
         if result:match("64") then
             arch = "x64"
         else
-            error(">>>ERR<<<   exelua can only run on 64-bit systems")
+            print("exelua: can only run on 64-bit systems")
+            error(">>>PLATFORM ERR<<<")
         end
     else
-        error(">>>ERR<<<   exelua can only run on Windows platforms")
+        print("exelua: can only run on Windows platforms")
+        error(">>>PLATFORM ERR<<<")
     end
 
     -- Check files in the srlua directory
@@ -51,7 +53,8 @@ local function selfCheck()
     for _, filename in ipairs(files) do
         local filepath = base_path .. filename
         if not file_exists(filepath) then
-            error(">>>ERR<<<   Missing srlua file: " .. filename)
+            print("exelua: missing srlua file: " .. filename)
+            error(">>>RUNTIME ERR<<<")
         end
     end
 end
@@ -59,9 +62,9 @@ end
 --- Ensure file extension
 --- @param filepath string: The file path
 --- @param ext string: The extension to check and add (e.g., ".lua" or ".exe")
-local function ensure_extension(filepath, ext)
+local function ensureExtension(filepath, ext)
     if not filepath:match("%." .. ext:sub(2) .. "$") then
-        print(">>>WARN<<<   File path is missing extension, automatically added: " .. filepath .. ext)
+        print("exelua: auto-completion of extension " .. ext .. " for `" .. filepath .. "`")
         return filepath .. ext
     end
     return filepath
@@ -72,38 +75,42 @@ end
 --- @param outputExe string: The output exe file path
 local function convert(inputLua, outputExe)
     -- Ensure the validity of the input Lua file and output exe file
-    inputLua = ensure_extension(inputLua, ".lua")
-    outputExe = ensure_extension(outputExe, ".exe")
+    inputLua = ensureExtension(inputLua, ".lua")
+    outputExe = ensureExtension(outputExe, ".exe")
 
     -- Check if the input file exists
     if not file_exists(inputLua) then
-        error(">>>ERR<<<   Input Lua file not found: " .. inputLua)
+        print("exelua: input .lua not find: " .. inputLua)
+        error(">>>FILEEXISTS ERR<<<")
     end
 
     -- Get paths for srlua and srglue
-    local base_path = "./srlua/"
+    local base_path = "srlua\\"
     local srglue = base_path .. "srglue.exe"
-    local srlua_main = base_path .. "srlua.exe"
+    local srluaMain = base_path .. "srlua.exe"
 
     -- Ensure necessary files exist
     if not file_exists(srglue) then
-        error(">>>ERR<<<   Missing srglue tool: " .. srglue)
+        print("exelua: missing " .. srglue)
+        error(">>>RUNTIME ERR<<<")
     end
-    if not file_exists(srlua_main) then
-        error(">>>ERR<<<   Missing srlua main program: " .. srlua_main)
+    if not file_exists(srluaMain) then
+        print("exelua: missing " .. srluaMain)
+        error(">>>RUNTIME ERR<<<")
     end
 
     -- Build the command
-    local cmd = string.format('%s %s %s %s', srglue, srlua_main, inputLua, outputExe)
-    print(">>>INFO<<<   Generating executable file...")
-    print(">>>INFO<<<   Executing command: " .. cmd)
+    local cmd = string.format('%s %s %s %s', srglue, srluaMain, inputLua, outputExe)
+    print("exelua: generating executable file")
+    print("exelua: executing command: " .. cmd)
 
     -- Execute the command
     local result = os.execute(cmd)
     if result == 0 then
-        print(">>>INFO<<<   Executable file generated successfully: " .. outputExe)
+        print("exelua: executable file generated successfully: " .. outputExe)
     else
-        error(">>>ERR<<<   Failed to generate executable file")
+        print("exelua: failed to generated")
+        error(">>>RUNTIME ERR<<<")
     end
 end
 
