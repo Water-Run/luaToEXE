@@ -2,8 +2,8 @@
 package = "exe"
 version = "0.1-1"
 source = {
-    url = "https://github.com/Water-Run/luaToEXE/releases/download/v0.1/luaToEXE-v0.1.zip",
-    dir = "luaToEXE"
+    url = "https://github.com/Water-Run/luaToEXE/releases/download/exe/exe.zip", -- 更新为你的 exe.zip 直接下载链接
+    dir = "luaToEXE" -- 解压缩后主目录名称
 }
 description = {
     summary = "A Lua library for converting .lua files into .exe executables",
@@ -13,7 +13,7 @@ description = {
     ]],
     homepage = "https://github.com/Water-Run/luaToEXE",
     license = "MIT",
-    maintainer = "WaterRun <2263633954@qq.com>"
+    maintainer = "WaterRun"
 }
 dependencies = {
     "lua >= 5.1"

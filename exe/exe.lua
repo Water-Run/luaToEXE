@@ -69,6 +69,7 @@ local function buildExe(luaFile, exeFile)
 
     -- Construct the conversion command
     local cmd = string.format('%s %s %s %s', srglue, srluaMain, luaFile, exeFile)
+    
     -- Execute the command
     local result = os.execute(cmd)
     if result ~= 0 then
