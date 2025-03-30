@@ -4,8 +4,7 @@
 These include:  
 
 1. ***Command-line tool***: [`exelua`](./exelua/README.md)  
-2. ***Lua library***: [`exe`](./exe/README.md)  
-3. ***Python library***: [`lua-to-exe`](./lua-to-exe/README.md)  
+2. ***Python library***: [`lua-to-exe`](./lua-to-exe/README.md)  
 
 Refer to the specific documentation for usage tutorials.  
 

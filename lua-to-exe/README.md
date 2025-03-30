@@ -1,6 +1,6 @@
 # lua-to-exe  
 
-> `lua-to-exe` is part of the [`luaToEXE`](https://github.com/Water-Run/luaToEXE) project suite.  
+> `lua_to-exe` is part of the [`luaToEXE`](https://github.com/Water-Run/luaToEXE) project suite.  
 
 ## Introduction  
 
