@@ -16,7 +16,7 @@
 
 *Follow these steps to complete the installation:*  
 
-1. Download `exelua-0.1.zip` from the `release` section of the [project's GitHub page](https://github.com/Water-Run/luaToEXE).  
+1. Download `exelua-0.3.zip` from the `release` section of the [project's GitHub page](https://github.com/Water-Run/luaToEXE).  
 2. Extract it to your device and add the extracted `exelua` folder to your system's `PATH` environment variable. Then restart your device.  
 3. Run `exelua -v` in a terminal. If it displays the version number, the installation was successful.  
 
