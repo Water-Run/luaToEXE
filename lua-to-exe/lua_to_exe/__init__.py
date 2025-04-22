@@ -10,6 +10,6 @@ Author: WaterRun
 
 from .lua_to_exe import lua_to_exe, gui
 
-__version__ = "0.1"
+__version__ = "0.2"
 __author__ = "WaterRun"
 __all__ = ['lua_to_exe', 'gui']

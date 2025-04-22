@@ -1,7 +1,7 @@
 r"""
 lua_to_exe Project Source Code
 :author: WaterRun
-:time: 2025-03-30
+:time: 2025-04-23
 :file: lua_to_exe.py
 """
 
@@ -12,7 +12,7 @@ from tkinter import filedialog, messagebox
 import platform
 import sys
 
-__version__ = "0.1"
+__version__ = "0.2"
 
 def _get_srlua_path():
     """Get the srlua tool path dynamically"""

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='lua-to-exe',  # 包名称（pip 安装时使用）
-    version='0.1',  # 当前版本号
+    version='0.2',  # 当前版本号
     install_requires=[],  # 依赖项列表
     packages=find_packages(),  # 自动发现包（会找到 lua_to_exe）
     author='WaterRun',  # 作者名
@@ -16,6 +16,9 @@ setup(
     url='https://github.com/Water-Run/luaToEXE',  # 项目主页
     classifiers=[
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'License :: OSI Approved :: MIT License',
         'Operating System :: Microsoft :: Windows',
@@ -23,7 +26,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    python_requires='>=3.10',  # Python 版本要求
+    python_requires='>=3.7',  # Python 版本要求
     include_package_data=True,  # 包含其他数据文件
     package_data={
         'lua_to_exe': ['srlua/*'],  # 包含 srlua 目录下的所有文件
