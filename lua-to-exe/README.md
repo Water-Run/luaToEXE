@@ -111,7 +111,7 @@ Launches the GUI for interactive conversion.
 
 ## Notes
 
-- **Windows 64-bit only.**
+- **Windows 32/64-bit only.**
 - Each `srlua/<version>/` subdirectory must contain both `srlua.exe` and `srglue.exe`.
 - The listed Lua versions are those actually present under `srlua/`.
 - If no version is available, conversion will not be possible.

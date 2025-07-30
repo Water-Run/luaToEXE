@@ -99,7 +99,7 @@ exelua -c hello.lua hello.exe -lua 5.4.6-64
 
 ## Notes
 
-- **exelua only works on Windows 64-bit systems.**
+- **exelua only works on Windows 32/64-bit systems.**
 - Each subdirectory under `srlua/` must contain both `srlua.exe` and `srglue.exe` for that Lua version to be available.
 - Not supported on Linux or macOS.
 - The list of supported Lua versions is determined by the actual folders present under `srlua/`.

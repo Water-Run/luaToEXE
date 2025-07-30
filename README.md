@@ -8,7 +8,7 @@ These include:
 
 Refer to the specific documentation for usage tutorials.  
 
-> **Platform limitation for ready-to-use tools**: Windows 64-bit  
+> **Platform limitation for ready-to-use tools**: Windows 32/64-bit  
 
 ---
 
