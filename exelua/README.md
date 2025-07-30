@@ -1,49 +1,109 @@
-# exelua  
+# exelua
 
-> `exelua` is part of the [`luaToEXE`](https://github.com/Water-Run/luaToEXE) project suite.  
+> `exelua` is part of the [`luaToEXE`](https://github.com/Water-Run/luaToEXE) tool suite.
 
-## Introduction  
+## Introduction
 
-**`exelua` provides a ready-to-use command-line tool for packaging `.lua` files into `.exe` files.**  
-> `exelua` itself is implemented in `lua` and converted into an `exe`.  
+**`exelua` provides a ready-to-use command-line tool for packaging `.lua` files into `.exe` executables.**
 
-> The conversion is powered by [`srlua`](https://github.com/LuaDist/srlua).  
->> ***Platform limitation: Windows 64-bit***  
+- `exelua` itself is implemented in Lua and packaged as an exe.
+- The conversion is powered by [`srlua`](https://github.com/LuaDist/srlua).
+- **This tool statically links with various Lua versions, so generated executables do not require external DLLs.**
+- **Platform limitation: Windows 64-bit.**
 
-## Getting Started  
+---
 
-### Installation  
+## Installation
 
-*Follow these steps to complete the installation:*  
+1. Download `exelua-0.3.zip` from the [release page](https://github.com/Water-Run/luaToEXE/releases).
+2. Extract it anywhere, and add the extracted `exelua` folder to your system `PATH` environment variable. Restart your computer.
+3. Run `exelua -v` in a terminal. If it displays the version number, installation was successful.
 
-1. Download `exelua-0.3.zip` from the `release` section of the [project's GitHub page](https://github.com/Water-Run/luaToEXE).  
-2. Extract it to your device and add the extracted `exelua` folder to your system's `PATH` environment variable. Then restart your device.  
-3. Run `exelua -v` in a terminal. If it displays the version number, the installation was successful.  
+---
 
-### Usage  
+## Directory Structure
 
-Right-click in the file explorer at the directory where you want to operate, and open a terminal.  
-
-***Check Version***  
-
-```powershell
-PS C:\Users\linzh> exelua -v
-exelua: ver 0.1
+```
+exelua.exe
+\srlua\
+   \5.1.5-64\
+      srlua.exe
+      srglue.exe
+   \5.4.6-64\
+      srlua.exe
+      srglue.exe
+   ...
 ```
 
-*Explanation:*  
+> You may place multiple Lua interpreter versions under the `srlua` directory.
 
-- The `-v` command displays the version number.  
+---
 
-***Convert***  
+## Usage
+
+### Show Version
 
 ```powershell
-PS C:\Users\linzh> exelua -c "helloworld.lua" "helloworld.exe"
-exelua: success
+exelua -v
 ```
 
-*Explanation:*  
+### Show Help
 
-- `-c` triggers the compilation process.  
-- The first argument following `-c` is the file path of the `.lua` file to be converted, and the second argument is the file path for the resulting `.exe` file.  
-- If the conversion succeeds, it will display `success`. Otherwise, it will display the corresponding error message.
+```powershell
+exelua -h
+```
+
+### List Available Lua Versions
+
+```powershell
+exelua -list
+```
+
+Sample output:
+
+```
+Available Lua versions:
+  5.1.5-64
+  5.4.6-64
+```
+
+### Compile Lua Script to EXE
+
+#### Use Default Lua Version (`5.1.5-64`)
+
+```powershell
+exelua -c hello.lua hello.exe
+```
+
+#### Specify Lua Version
+
+```powershell
+exelua -c hello.lua hello.exe -lua 5.4.6-64
+```
+
+- `-lua <version>` specifies the interpreter version (must match a subfolder under `srlua/`). If not provided, the default is `5.1.5-64`.
+
+---
+
+## Command-Line Parameters
+
+| Option           | Description                                           |
+| ---------------- | ----------------------------------------------------- |
+| -v               | Show exelua version                                   |
+| -h               | Show help information                                 |
+| -list            | List all available Lua versions in the `srlua` folder |
+| -c               | Compile the specified Lua file to an exe              |
+| -lua `<version>` | Specify Lua version (optional, used with `-c`)        |
+
+---
+
+## Notes
+
+- **exelua only works on Windows 64-bit systems.**
+- Each subdirectory under `srlua/` must contain both `srlua.exe` and `srglue.exe` for that Lua version to be available.
+- Not supported on Linux or macOS.
+- The list of supported Lua versions is determined by the actual folders present under `srlua/`.
+
+---
+
+For additional details or troubleshooting, please refer to the [GitHub repository](https://github.com/Water-Run/luaToEXE).

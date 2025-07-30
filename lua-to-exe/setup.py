@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='lua-to-exe',  # 包名称（pip 安装时使用）
-    version='0.2',  # 当前版本号
+    version='1.0',  # 当前版本号
     install_requires=[],  # 依赖项列表
     packages=find_packages(),  # 自动发现包（会找到 lua_to_exe）
     author='WaterRun',  # 作者名
