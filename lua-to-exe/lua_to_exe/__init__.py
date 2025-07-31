@@ -12,4 +12,4 @@ from .lua_to_exe import lua_to_exe, gui, all_available
 
 __version__ = "1.0"
 __author__ = "WaterRun"
-__all__ = ['lua_to_exe', 'gui']
+__all__ = ['lua_to_exe', 'gui', 'all_available']
