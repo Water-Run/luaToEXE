@@ -145,7 +145,3 @@ lua_to_exe.lua_to_exe("hello.lua", "hello.exe", lua_version="5.4.6-64")
 # Launch the graphical interface
 lua_to_exe.gui()
 ```
-
----
-
-For more details, please refer to the [GitHub repository](https://github.com/Water-Run/luaToEXE).
